@@ -46,5 +46,22 @@ namespace Clonesaw
         {
 
         }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBoxSideLights11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBoxSideLights1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

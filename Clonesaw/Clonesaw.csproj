@@ -54,10 +54,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GameLogic\Bell.cs" />
+    <Compile Include="GameLogic\RoundOver.cs" />
     <Compile Include="GameLogic\Game.cs" />
     <Compile Include="GameLogic\Hand.cs" />
     <Compile Include="GameLogic\HumanPlayer.cs" />
     <Compile Include="GameLogic\Player.cs" />
+    <Compile Include="GameLogic\Saw.cs" />
     <Compile Include="GameLogic\SkeletonPlayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

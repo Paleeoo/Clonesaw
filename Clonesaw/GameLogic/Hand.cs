@@ -4,6 +4,9 @@ namespace Clonesaw
 {
     internal class Hand
     {
+        public PictureBox HandBox;
+
+        public bool saw = false;
         public Player owner { get; }
 
         public int MaxFingers { get; set; }
@@ -16,8 +19,6 @@ namespace Clonesaw
                 _fingers = value % MaxFingers;
             }
         }
-
-        public PictureBox HandBox;
 
         public Hand(Player owner) : this(owner, 1, 5)
         {
