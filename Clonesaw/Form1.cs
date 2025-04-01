@@ -17,9 +17,13 @@ namespace Clonesaw
             game = Game.InitializeGame(this);
 
             game.PlayerDevil.HandL.HandBox = pictureBoxDevilHandL;
+            game.PlayerDevil.HandL.SawBox = pictureBoxDevilHandLSaw;
             game.PlayerDevil.HandR.HandBox = pictureBoxDevilHandR;
+            game.PlayerDevil.HandR.SawBox = pictureBoxDevilHandRSaw;
             game.PlayerHuman.HandL.HandBox = pictureBoxHumanHandL;
+            game.PlayerHuman.HandL.SawBox = pictureBoxHumanHandLSaw;
             game.PlayerHuman.HandR.HandBox = pictureBoxHumanHandR;
+            game.PlayerHuman.HandR.SawBox = pictureBoxHumanHandRSaw;
         }
 
         private void pictureBoxDevilHandL_Click(object sender, EventArgs e)
@@ -29,7 +33,7 @@ namespace Clonesaw
 
         private void pictureBoxDevilHandR_Click(object sender, EventArgs e)
         {
-            game.SelectHand(game.PlayerDevil.HandL);
+            game.SelectHand(game.PlayerDevil.HandR);
         }
 
         private void pictureBoxHumanHandL_Click(object sender, EventArgs e)
@@ -39,12 +43,12 @@ namespace Clonesaw
 
         private void pictureBoxHumanHandR_Click(object sender, EventArgs e)
         {
-            game.SelectHand(game.PlayerHuman.HandL);
+            game.SelectHand(game.PlayerHuman.HandR);
         }
 
         private void pictureBoxBell_Click(object sender, EventArgs e)
         {
-
+            game.BellPush();
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -62,6 +66,6 @@ namespace Clonesaw
 
         }
 
-        
+      
     }
 }

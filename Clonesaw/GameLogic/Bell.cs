@@ -32,7 +32,9 @@ namespace Conesaw.GameLogic
 
         public void UpdateBell()
         {
-
+            SetBellSideLights();
+            UpdateBellSideLights();
+            UpdateCharges();
         }
 
         private void SetBellSideLights()
@@ -60,6 +62,44 @@ namespace Conesaw.GameLogic
                     {
                         Game.ActiveGame.UI.pictureBoxSideLights3.Visible = true;
                         Game.ActiveGame.UI.pictureBoxSideLights33.Visible = true;
+                    }
+                }
+            }
+            else
+            {
+                Game.ActiveGame.UI.pictureBoxSideLights1.Visible = false;
+                Game.ActiveGame.UI.pictureBoxSideLights11.Visible = false;
+                Game.ActiveGame.UI.pictureBoxSideLights2.Visible = false;
+                Game.ActiveGame.UI.pictureBoxSideLights22.Visible = false;
+                Game.ActiveGame.UI.pictureBoxSideLights3.Visible = false;
+                Game.ActiveGame.UI.pictureBoxSideLights33.Visible = false;
+            }
+        }
+
+        public void UpdateCharges()
+        {
+            if (_charges > 0)
+            {
+                Game.ActiveGame.UI.pictureCharges1.Visible = true;
+                Game.ActiveGame.UI.pictureCharges11.Visible = true;
+                if (_charges > 1)
+                {
+                    Game.ActiveGame.UI.pictureCharges2.Visible = true;
+                    Game.ActiveGame.UI.pictureCharges22.Visible = true;
+                    if (_charges > 2)
+                    {
+                        Game.ActiveGame.UI.pictureCharges3.Visible = true;
+                        Game.ActiveGame.UI.pictureCharges33.Visible = true;
+                        if (_charges > 3)
+                        {
+                            Game.ActiveGame.UI.pictureCharges4.Visible = true;
+                            Game.ActiveGame.UI.pictureCharges44.Visible = true;
+                            if (_charges > 4)
+                            {
+                                Game.ActiveGame.UI.pictureCharges5.Visible = true;
+                                Game.ActiveGame.UI.pictureCharges55.Visible = true;
+                            }
+                        }
                     }
                 }
             }

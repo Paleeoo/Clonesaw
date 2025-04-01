@@ -5,6 +5,7 @@ namespace Clonesaw
     internal class Hand
     {
         public PictureBox HandBox;
+        public PictureBox SawBox;
 
         public bool saw = false;
         public Player owner { get; }

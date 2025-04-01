@@ -1,6 +1,7 @@
 ﻿using Conesaw.GameLogic;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Clonesaw
@@ -12,6 +13,7 @@ namespace Clonesaw
         public Bell Bell { get; private set; }
         public Saw Saw { get; private set; }
         public readonly Form1 UI;
+        private Color handcolor;
 
         private Player playerTurn;
         private Hand handSelected;
@@ -36,7 +38,7 @@ namespace Clonesaw
             PlayerDevil = new HumanPlayer("Devil");
             PlayerHuman = new HumanPlayer("Human");
             playerTurn = PlayerHuman;
-            List<Hand> hands = new List<Hand>();
+            hands = new List<Hand>();
             hands.Add(PlayerHuman.HandR);
             hands.Add(PlayerHuman.HandL);
             hands.Add(PlayerDevil.HandL);
@@ -63,7 +65,14 @@ namespace Clonesaw
             if (handSelected == null)
             {
                 if (playerTurn == hand.owner)
+                {
                     handSelected = hand;
+                    handcolor = hand.HandBox.BackColor;
+                    hand.HandBox.BackColor = Color.Yellow;
+                }
+
+                    
+
             }
             else
             {
@@ -76,22 +85,32 @@ namespace Clonesaw
                         hands.Remove(hand);
 
                         hand.HandBox.Enabled = false;
+                        hand.HandBox.Visible = false; 
 
-                        if (UI.pictureBoxBell.Enabled == false)
+                        if (UI.pictureBoxBell.Visible == false)
                             Bell.ActivateBell();
                     }
-                    handSelected = null;
+                    handSelected.HandBox.BackColor = handcolor;
                     playerTurn = hand.owner;
+                    if (playerTurn == PlayerDevil)
+                    {
+                        Game.ActiveGame.UI.pictureBoxplayerturn.BackColor = Color.Red;
+                    }
+                    else
+                    {
+                        Game.ActiveGame.UI.pictureBoxplayerturn.BackColor = Color.PeachPuff;
+                    }
+                    handSelected = null;
+
                 }
             }
-
         }
 
-        public void BellPush(Hand hand)
+        public void BellPush()
         {
             if (handSelected == null) return;
 
-            if (hand.owner == PlayerDevil)
+            if (handSelected.owner == PlayerDevil)
             {
                 playerTurn = PlayerHuman;
             }
@@ -100,7 +119,16 @@ namespace Clonesaw
                 playerTurn = PlayerDevil;
             }
 
-            Game.ActiveGame.Saw.ActivSaw();
+            if (! Game.ActiveGame.Saw.SawStatus)
+            {
+                Game.ActiveGame.Saw.ActivSaw();
+            }
+            else
+            {
+                Game.ActiveGame.Saw.SawMove(handSelected.Fingers);
+            }
+
+           
 
         }
     }
