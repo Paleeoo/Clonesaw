@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace Clonesaw
@@ -55,9 +56,10 @@ namespace Clonesaw
             return false;
         }
 
-        public void CutFingers()
+        public void CutFingers(Hand hand)
         {
-
+            hand.CutFinger();
+            hand.Fingers = 0;
         }
 
         public void SelectHand(Hand hand)
@@ -76,6 +78,7 @@ namespace Clonesaw
             }
             else
             {
+                
                 if (playerTurn != hand.owner)
                 {
                     hand.Fingers += handSelected.Fingers;
@@ -91,6 +94,16 @@ namespace Clonesaw
                             Bell.ActivateBell();
                     }
                     handSelected.HandBox.BackColor = handcolor;
+
+                    if (Game.ActiveGame.Saw.SawStatus)
+                    {
+                        Hand handsaw = Game.ActiveGame.Saw.SawMove(0);
+                        if (handsaw != null)
+                        {
+                            CutProbabilityResolve(handsaw);
+                        }
+                    }
+
                     playerTurn = hand.owner;
                     if (playerTurn == PlayerDevil)
                     {
@@ -108,7 +121,9 @@ namespace Clonesaw
 
         public void BellPush()
         {
+            Hand SawHand;
             if (handSelected == null) return;
+            handSelected.HandBox.BackColor = handcolor;
 
             if (handSelected.owner == PlayerDevil)
             {
@@ -119,16 +134,44 @@ namespace Clonesaw
                 playerTurn = PlayerDevil;
             }
 
+            if (playerTurn == PlayerDevil)
+            {
+                Game.ActiveGame.UI.pictureBoxplayerturn.BackColor = Color.Red;
+            }
+            else
+            {
+                Game.ActiveGame.UI.pictureBoxplayerturn.BackColor = Color.PeachPuff;
+            }
+
             if (! Game.ActiveGame.Saw.SawStatus)
             {
                 Game.ActiveGame.Saw.ActivSaw();
             }
             else
             {
-                Game.ActiveGame.Saw.SawMove(handSelected.Fingers);
+                SawHand = Game.ActiveGame.Saw.SawMove(handSelected.Fingers);
+                
+                
+            }
+            handSelected = null;
+        }
+        public void CutProbabilityResolve(Hand Cuthand)
+        {
+
+            if (Game.ActiveGame.Saw.SawCutProbability())
+            {
+                  
+                MessageBox.Show("schnip schnap der finger ist ab");
+                CutFingers(Cuthand);
+                    
+            }
+            else
+            {
+                 MessageBox.Show("Glück gehabt");
             }
 
-           
+
+
 
         }
     }
