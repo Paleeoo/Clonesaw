@@ -27,6 +27,21 @@ namespace Conesaw.GameLogic
             i.SawBox.Visible = true;
         }
 
+        public void SawBladeUpdate()
+        {
+            foreach (var item in Game.ActiveGame.hands)
+            {
+                if (item.saw)
+                {
+                    item.SawBox.Visible = true;
+                }
+                else
+                {
+                    item.SawBox.Visible = false;
+                }
+            }
+        }
+
         public Hand SawMove(int fingers)
         {
             foreach (var item in Game.ActiveGame.hands)
@@ -41,6 +56,7 @@ namespace Conesaw.GameLogic
                         if (i <= Game.ActiveGame.hands.Count)
                         {
                             Game.ActiveGame.hands[i].saw = true;
+                            SawBladeUpdate();
                             return Game.ActiveGame.hands[i];
                         }
 
@@ -50,6 +66,7 @@ namespace Conesaw.GameLogic
             }
             return null;
         }
+
         public bool SawCutProbability()
         {
             if (random.Next(1, 11) <= Game.ActiveGame.Bell._charges)

@@ -6,6 +6,7 @@ namespace Clonesaw
     {
         public PictureBox HandBox;
         public PictureBox SawBox;
+        public Label FingerLabel;
 
         public bool saw = false;
         public Player owner { get; }

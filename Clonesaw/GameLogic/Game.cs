@@ -72,9 +72,6 @@ namespace Clonesaw
                     handcolor = hand.HandBox.BackColor;
                     hand.HandBox.BackColor = Color.Yellow;
                 }
-
-                    
-
             }
             else
             {
@@ -155,6 +152,7 @@ namespace Clonesaw
             }
             handSelected = null;
         }
+
         public void CutProbabilityResolve(Hand Cuthand)
         {
 
@@ -169,10 +167,44 @@ namespace Clonesaw
             {
                  MessageBox.Show("Glück gehabt");
             }
+        }
+            
+        public void FingerUpdate()
+        {
+            PlayerHuman.HandL.FingerLabel.Text = $"{PlayerHuman.HandL.Fingers} / {PlayerHuman.HandL.MaxFingers}";
+            PlayerHuman.HandR.FingerLabel.Text = $"{PlayerHuman.HandR.Fingers} / {PlayerHuman.HandR.MaxFingers}";
 
 
+        }
+
+        public void gwinn()
+        {
+            int human = 0;
+            int devil = 0;
+
+            if (PlayerHuman.HandL.Fingers == 0)
+            {
+                human++;
+            }
+            if (PlayerHuman.HandR.Fingers == 0)
+            {
+                human++;
+            }
+            if (PlayerDevil.HandL.Fingers == 0)
+            {
+                devil++; 
+            }
+            if (PlayerDevil.HandR.Fingers == 0)
+            {
+                devil++;
+            }
+
+           // if (human == 2)
+
+           // if (devil == 2)
 
 
         }
     }
 }
+

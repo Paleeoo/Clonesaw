@@ -62,6 +62,10 @@
             this.pictureBoxDevilHandRSaw = new System.Windows.Forms.PictureBox();
             this.pictureBoxHumanHandLSaw = new System.Windows.Forms.PictureBox();
             this.pictureBoxDevilHandLSaw = new System.Windows.Forms.PictureBox();
+            this.labelHumanHandR = new System.Windows.Forms.Label();
+            this.labelHumanHandL = new System.Windows.Forms.Label();
+            this.labelDevilHandL = new System.Windows.Forms.Label();
+            this.labelDevilHandR = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDevil)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHuman)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHumanHandL)).BeginInit();
@@ -435,11 +439,55 @@
             this.pictureBoxDevilHandLSaw.TabStop = false;
             this.pictureBoxDevilHandLSaw.Visible = false;
             // 
+            // labelHumanHandR
+            // 
+            this.labelHumanHandR.AutoSize = true;
+            this.labelHumanHandR.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHumanHandR.Location = new System.Drawing.Point(571, 384);
+            this.labelHumanHandR.Name = "labelHumanHandR";
+            this.labelHumanHandR.Size = new System.Drawing.Size(46, 18);
+            this.labelHumanHandR.TabIndex = 41;
+            this.labelHumanHandR.Text = "label1";
+            // 
+            // labelHumanHandL
+            // 
+            this.labelHumanHandL.AutoSize = true;
+            this.labelHumanHandL.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHumanHandL.Location = new System.Drawing.Point(436, 384);
+            this.labelHumanHandL.Name = "labelHumanHandL";
+            this.labelHumanHandL.Size = new System.Drawing.Size(46, 18);
+            this.labelHumanHandL.TabIndex = 42;
+            this.labelHumanHandL.Text = "label2";
+            // 
+            // labelDevilHandL
+            // 
+            this.labelDevilHandL.AutoSize = true;
+            this.labelDevilHandL.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDevilHandL.Location = new System.Drawing.Point(436, 80);
+            this.labelDevilHandL.Name = "labelDevilHandL";
+            this.labelDevilHandL.Size = new System.Drawing.Size(46, 18);
+            this.labelDevilHandL.TabIndex = 43;
+            this.labelDevilHandL.Text = "label3";
+            // 
+            // labelDevilHandR
+            // 
+            this.labelDevilHandR.AutoSize = true;
+            this.labelDevilHandR.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDevilHandR.Location = new System.Drawing.Point(571, 80);
+            this.labelDevilHandR.Name = "labelDevilHandR";
+            this.labelDevilHandR.Size = new System.Drawing.Size(46, 18);
+            this.labelDevilHandR.TabIndex = 44;
+            this.labelDevilHandR.Text = "label4";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1006, 513);
+            this.Controls.Add(this.labelDevilHandR);
+            this.Controls.Add(this.labelDevilHandL);
+            this.Controls.Add(this.labelHumanHandL);
+            this.Controls.Add(this.labelHumanHandR);
             this.Controls.Add(this.pictureBoxDevilHandLSaw);
             this.Controls.Add(this.pictureBoxHumanHandLSaw);
             this.Controls.Add(this.pictureBoxDevilHandRSaw);
@@ -512,6 +560,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHumanHandLSaw)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDevilHandLSaw)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -550,6 +599,10 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
         public System.Windows.Forms.PictureBox pictureBoxHumanHandRSaw;
+        private System.Windows.Forms.Label labelHumanHandR;
+        private System.Windows.Forms.Label labelHumanHandL;
+        private System.Windows.Forms.Label labelDevilHandL;
+        private System.Windows.Forms.Label labelDevilHandR;
     }
 }
 
