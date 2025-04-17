@@ -6,7 +6,7 @@ namespace Conesaw.GameLogic
 {
     internal class Bell
     {
-        private int _count = 0;
+        public int _count = 0;
         public Hand Hand; //TODO 
         public int _charges;
         private const int MAX_CHARGES = 5;
@@ -48,7 +48,7 @@ namespace Conesaw.GameLogic
             }
         }
 
-        private void UpdateBellSideLights()
+        public void UpdateBellSideLights()
         {
             if (_count > 0)
             {
@@ -105,12 +105,17 @@ namespace Conesaw.GameLogic
             }
             else
             {
-                Game.ActiveGame.UI.pictureBoxSideLights1.Visible = false;
-                Game.ActiveGame.UI.pictureBoxSideLights11.Visible = false;
-                Game.ActiveGame.UI.pictureBoxSideLights2.Visible = false;
-                Game.ActiveGame.UI.pictureBoxSideLights22.Visible = false;
-                Game.ActiveGame.UI.pictureBoxSideLights3.Visible = false;
-                Game.ActiveGame.UI.pictureBoxSideLights33.Visible = false;
+                Game.ActiveGame.UI.pictureCharges1.Visible = false;
+                Game.ActiveGame.UI.pictureCharges11.Visible = false;
+                Game.ActiveGame.UI.pictureCharges2.Visible = false;
+                Game.ActiveGame.UI.pictureCharges22.Visible = false;
+                Game.ActiveGame.UI.pictureCharges2.Visible = false;
+                Game.ActiveGame.UI.pictureCharges22.Visible = false;
+                Game.ActiveGame.UI.pictureCharges4.Visible = false;
+                Game.ActiveGame.UI.pictureCharges44.Visible = false;
+                Game.ActiveGame.UI.pictureCharges5.Visible = false;
+                Game.ActiveGame.UI.pictureCharges55.Visible = false;
+
             }
         }
 

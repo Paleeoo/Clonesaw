@@ -15,19 +15,23 @@ namespace Clonesaw
         private void Form1_Load(object sender, EventArgs e)
         {
             game = Game.InitializeGame(this);
-
+          
             game.PlayerDevil.HandL.HandBox = pictureBoxDevilHandL;
             game.PlayerDevil.HandL.SawBox = pictureBoxDevilHandLSaw;
             game.PlayerDevil.HandL.FingerLabel = labelDevilHandL;
             game.PlayerDevil.HandR.HandBox = pictureBoxDevilHandR;
             game.PlayerDevil.HandR.SawBox = pictureBoxDevilHandRSaw;
             game.PlayerDevil.HandR.FingerLabel = labelDevilHandR;
+
+
             game.PlayerHuman.HandL.HandBox = pictureBoxHumanHandL;
             game.PlayerHuman.HandL.SawBox = pictureBoxHumanHandLSaw;
             game.PlayerHuman.HandL.FingerLabel = labelHumanHandL;
             game.PlayerHuman.HandR.HandBox = pictureBoxHumanHandR;
             game.PlayerHuman.HandR.SawBox = pictureBoxHumanHandRSaw;
             game.PlayerHuman.HandR.FingerLabel = labelHumanHandR;
+
+            game.FingerUpdate();
         }
 
         private void pictureBoxDevilHandL_Click(object sender, EventArgs e)

@@ -66,6 +66,12 @@
             this.labelHumanHandL = new System.Windows.Forms.Label();
             this.labelDevilHandL = new System.Windows.Forms.Label();
             this.labelDevilHandR = new System.Windows.Forms.Label();
+            this.pictureBoxHumanWin2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxHumanWin1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxHumannWin3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxDevilWin3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxDevilWin1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxDevilWin2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDevil)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHuman)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHumanHandL)).BeginInit();
@@ -100,6 +106,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDevilHandRSaw)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHumanHandLSaw)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDevilHandLSaw)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHumanWin2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHumanWin1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHumannWin3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDevilWin3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDevilWin1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDevilWin2)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxDevil
@@ -479,11 +491,80 @@
             this.labelDevilHandR.TabIndex = 44;
             this.labelDevilHandR.Text = "label4";
             // 
+            // pictureBoxHumanWin2
+            // 
+            this.pictureBoxHumanWin2.BackColor = System.Drawing.Color.Lime;
+            this.pictureBoxHumanWin2.Enabled = false;
+            this.pictureBoxHumanWin2.Location = new System.Drawing.Point(911, 439);
+            this.pictureBoxHumanWin2.Name = "pictureBoxHumanWin2";
+            this.pictureBoxHumanWin2.Size = new System.Drawing.Size(30, 32);
+            this.pictureBoxHumanWin2.TabIndex = 45;
+            this.pictureBoxHumanWin2.TabStop = false;
+            this.pictureBoxHumanWin2.Visible = false;
+            // 
+            // pictureBoxHumanWin1
+            // 
+            this.pictureBoxHumanWin1.BackColor = System.Drawing.Color.Lime;
+            this.pictureBoxHumanWin1.Enabled = false;
+            this.pictureBoxHumanWin1.Location = new System.Drawing.Point(872, 439);
+            this.pictureBoxHumanWin1.Name = "pictureBoxHumanWin1";
+            this.pictureBoxHumanWin1.Size = new System.Drawing.Size(33, 32);
+            this.pictureBoxHumanWin1.TabIndex = 46;
+            this.pictureBoxHumanWin1.TabStop = false;
+            this.pictureBoxHumanWin1.Visible = false;
+            // 
+            // pictureBoxHumannWin3
+            // 
+            this.pictureBoxHumannWin3.BackColor = System.Drawing.Color.Lime;
+            this.pictureBoxHumannWin3.Enabled = false;
+            this.pictureBoxHumannWin3.Location = new System.Drawing.Point(947, 439);
+            this.pictureBoxHumannWin3.Name = "pictureBoxHumannWin3";
+            this.pictureBoxHumannWin3.Size = new System.Drawing.Size(33, 32);
+            this.pictureBoxHumannWin3.TabIndex = 47;
+            this.pictureBoxHumannWin3.TabStop = false;
+            this.pictureBoxHumannWin3.Visible = false;
+            // 
+            // pictureBoxDevilWin3
+            // 
+            this.pictureBoxDevilWin3.BackColor = System.Drawing.Color.Lime;
+            this.pictureBoxDevilWin3.Location = new System.Drawing.Point(947, 22);
+            this.pictureBoxDevilWin3.Name = "pictureBoxDevilWin3";
+            this.pictureBoxDevilWin3.Size = new System.Drawing.Size(33, 32);
+            this.pictureBoxDevilWin3.TabIndex = 50;
+            this.pictureBoxDevilWin3.TabStop = false;
+            this.pictureBoxDevilWin3.Visible = false;
+            // 
+            // pictureBoxDevilWin1
+            // 
+            this.pictureBoxDevilWin1.BackColor = System.Drawing.Color.Lime;
+            this.pictureBoxDevilWin1.Location = new System.Drawing.Point(872, 21);
+            this.pictureBoxDevilWin1.Name = "pictureBoxDevilWin1";
+            this.pictureBoxDevilWin1.Size = new System.Drawing.Size(33, 32);
+            this.pictureBoxDevilWin1.TabIndex = 49;
+            this.pictureBoxDevilWin1.TabStop = false;
+            this.pictureBoxDevilWin1.Visible = false;
+            // 
+            // pictureBoxDevilWin2
+            // 
+            this.pictureBoxDevilWin2.BackColor = System.Drawing.Color.Lime;
+            this.pictureBoxDevilWin2.Location = new System.Drawing.Point(911, 21);
+            this.pictureBoxDevilWin2.Name = "pictureBoxDevilWin2";
+            this.pictureBoxDevilWin2.Size = new System.Drawing.Size(30, 32);
+            this.pictureBoxDevilWin2.TabIndex = 48;
+            this.pictureBoxDevilWin2.TabStop = false;
+            this.pictureBoxDevilWin2.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1006, 513);
+            this.Controls.Add(this.pictureBoxDevilWin3);
+            this.Controls.Add(this.pictureBoxDevilWin1);
+            this.Controls.Add(this.pictureBoxDevilWin2);
+            this.Controls.Add(this.pictureBoxHumannWin3);
+            this.Controls.Add(this.pictureBoxHumanWin1);
+            this.Controls.Add(this.pictureBoxHumanWin2);
             this.Controls.Add(this.labelDevilHandR);
             this.Controls.Add(this.labelDevilHandL);
             this.Controls.Add(this.labelHumanHandL);
@@ -559,6 +640,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDevilHandRSaw)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHumanHandLSaw)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDevilHandLSaw)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHumanWin2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHumanWin1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHumannWin3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDevilWin3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDevilWin1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDevilWin2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -603,6 +690,12 @@
         private System.Windows.Forms.Label labelHumanHandL;
         private System.Windows.Forms.Label labelDevilHandL;
         private System.Windows.Forms.Label labelDevilHandR;
+        public System.Windows.Forms.PictureBox pictureBoxHumanWin2;
+        public System.Windows.Forms.PictureBox pictureBoxHumanWin1;
+        public System.Windows.Forms.PictureBox pictureBoxHumannWin3;
+        public System.Windows.Forms.PictureBox pictureBoxDevilWin3;
+        public System.Windows.Forms.PictureBox pictureBoxDevilWin1;
+        public System.Windows.Forms.PictureBox pictureBoxDevilWin2;
     }
 }
 

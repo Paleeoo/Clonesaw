@@ -13,12 +13,14 @@ namespace Clonesaw
         public Player PlayerHuman { get; }
         public Bell Bell { get; private set; }
         public Saw Saw { get; private set; }
+        public RoundOver RoundOver { get; private set; }
         public readonly Form1 UI;
         private Color handcolor;
 
         private Player playerTurn;
         private Hand handSelected;
         public List<Hand> hands;
+        public List<Hand> allhands;
 
         public static Game ActiveGame { get; private set; }
 
@@ -35,6 +37,7 @@ namespace Clonesaw
             UI = ui;
             Bell = new Bell();
             Saw = new Saw();
+            RoundOver = new RoundOver();
             ActiveGame = this;
             PlayerDevil = new HumanPlayer("Devil");
             PlayerHuman = new HumanPlayer("Human");
@@ -44,22 +47,22 @@ namespace Clonesaw
             hands.Add(PlayerHuman.HandL);
             hands.Add(PlayerDevil.HandL);
             hands.Add(PlayerDevil.HandR);
-        }
+            allhands = new List<Hand>();
+            allhands.Add(PlayerHuman.HandR);
+            allhands.Add(PlayerHuman.HandL);
+            allhands.Add(PlayerDevil.HandL);
+            allhands.Add(PlayerDevil.HandR);
 
-        public bool FingerCut()
-        {
-            Random random = new Random();
-            if (Game.ActiveGame.Bell._charges >= random.Next(1,11) )
-            {
-                return true;
-            }
-            return false;
         }
 
         public void CutFingers(Hand hand)
         {
             hand.CutFinger();
             hand.Fingers = 0;
+            hand.HandBox.Enabled = false;
+            hand.HandBox.Visible = false;
+            hand.FingerLabel.Visible = false;
+            Gewinnen();
         }
 
         public void SelectHand(Hand hand)
@@ -85,7 +88,8 @@ namespace Clonesaw
                         hands.Remove(hand);
 
                         hand.HandBox.Enabled = false;
-                        hand.HandBox.Visible = false; 
+                        hand.HandBox.Visible = false;
+                        hand.FingerLabel.Visible = false;
 
                         if (UI.pictureBoxBell.Visible == false)
                             Bell.ActivateBell();
@@ -111,6 +115,7 @@ namespace Clonesaw
                         Game.ActiveGame.UI.pictureBoxplayerturn.BackColor = Color.PeachPuff;
                     }
                     handSelected = null;
+                    Gewinnen();
 
                 }
             }
@@ -118,7 +123,6 @@ namespace Clonesaw
 
         public void BellPush()
         {
-            Hand SawHand;
             if (handSelected == null) return;
             handSelected.HandBox.BackColor = handcolor;
 
@@ -146,11 +150,13 @@ namespace Clonesaw
             }
             else
             {
-                SawHand = Game.ActiveGame.Saw.SawMove(handSelected.Fingers);
-                
-                
+                Hand SawHand = Game.ActiveGame.Saw.SawMove(handSelected.Fingers);
+                CutProbabilityResolve(SawHand);
+
+
             }
             handSelected = null;
+            Gewinnen();
         }
 
         public void CutProbabilityResolve(Hand Cuthand)
@@ -175,9 +181,11 @@ namespace Clonesaw
             PlayerHuman.HandR.FingerLabel.Text = $"{PlayerHuman.HandR.Fingers} / {PlayerHuman.HandR.MaxFingers}";
 
 
+            PlayerDevil.HandL.FingerLabel.Text = $"{PlayerDevil.HandL.Fingers} / {PlayerDevil.HandL.MaxFingers}";
+            PlayerDevil.HandR.FingerLabel.Text = $"{PlayerDevil.HandR.Fingers} / {PlayerDevil.HandR.MaxFingers}";
         }
 
-        public void gwinn()
+        public void Gewinnen()
         {
             int human = 0;
             int devil = 0;
@@ -199,10 +207,40 @@ namespace Clonesaw
                 devil++;
             }
 
-           // if (human == 2)
+            if (human == 2)
+            {
+                MessageBox.Show("Der Spieler oben hat gewonnen");
+                Game.ActiveGame.RoundOver.roundover();
+                PlayerDevil.IncrementScore();
+                Game.ActiveGame.UI.pictureBoxDevilWin1.Visible = true;
+                if (PlayerDevil.Score > 1)
+                {
+                    Game.ActiveGame.UI.pictureBoxDevilWin2.Visible = true;
+                    if (PlayerDevil.Score > 2)
+                    {
+                        Game.ActiveGame.UI.pictureBoxDevilWin3.Visible = true;
+                    }
 
-           // if (devil == 2)
+                }
+            }
 
+            if (devil == 2)
+            {
+                MessageBox.Show("Der Spieler unten hat gewonnen");
+                Game.ActiveGame.RoundOver.roundover();
+                PlayerHuman.IncrementScore();
+                Game.ActiveGame.UI.pictureBoxHumanWin1.Visible = true;
+                if (PlayerHuman.Score > 1)
+                {
+                    Game.ActiveGame.UI.pictureBoxHumanWin2.Visible = true;
+                    if (PlayerHuman.Score > 2)
+                    {
+                        Game.ActiveGame.UI.pictureBoxHumannWin3.Visible = true;
+                    }
+                }
+            }
+            
+            FingerUpdate();
 
         }
     }
